@@ -1,0 +1,26 @@
+.quals{
+    width: 100%;
+    font-size: 3vh;
+    height: 100vh;
+    
+}
+.quals__title{
+    font-size: 8vh;
+    margin-top: 20vh;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+  
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
