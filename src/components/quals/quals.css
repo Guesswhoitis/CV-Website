@@ -2,6 +2,9 @@
     width: 100%;
     font-size: 3vh;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
 }
 .quals__title{
@@ -12,7 +15,7 @@
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
 }
   
 td, th {

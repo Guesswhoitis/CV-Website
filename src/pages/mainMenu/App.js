@@ -24,7 +24,7 @@ function App() {
         <source src={backGround} type="video/mp4"/>
       </video>
       <div class="mainMenu__overVideoText">
-        <h2>Theory is when you know everything, but nothing worksPractice is when you don't know anything, yet everything worksIn Programming we combine theory and practice; nothing works and we don't know why.</h2>
+        <h2>Theory is when you know everything, but nothing works. Practice is when you don't know anything, yet everything works. In Programming we combine theory and practice; nothing works and we don't know why.</h2>
       </div>
       <Entry id="whoAmI" title={whoAmITitle} paragraph ={whoAmISection} picture ={familyPic} order={"right"}/>
       <Entry id="myHobbies" title={myHobbyTitle} paragraph ={myHobbySection} picture ={trailRide} order={"left"}/>
