@@ -1,6 +1,6 @@
 import './App.css';
 import MainMenuHeader from '../../components/mainMenuHeader/mainMenuHeader';
-import backGround from './backgroundLoop.mp4';
+import backGround from '../../assets/backgroundLoop.mp4';
 import Entry from '../../components/entry/entry';
 import familyPic from '../../assets/me.jpg';
 import trailRide from '../../assets/trailRide.jpg';
@@ -20,14 +20,14 @@ function App() {
   return (
     <div className="App">
       <MainMenuHeader/>
-      <video id="videoPlayer" class="mainMenu__backgroundVideo" width="1920" height="1080" autoPlay muted loop>
+      <video id="mainMenu__videoPlayer" class="mainMenu__backgroundVideo" width="1920" height="1080" autoPlay muted loop>
         <source src={backGround} type="video/mp4"/>
       </video>
       <div class="mainMenu__overVideoText">
         <h2>Theory is when you know everything, but nothing worksPractice is when you don't know anything, yet everything worksIn Programming we combine theory and practice; nothing works and we don't know why.</h2>
       </div>
-      <Entry title={whoAmITitle} paragraph ={whoAmISection} picture ={familyPic} order={"right"}/>
-      <Entry title={myHobbyTitle} paragraph ={myHobbySection} picture ={trailRide} order={"left"}/>
+      <Entry id="whoAmI" title={whoAmITitle} paragraph ={whoAmISection} picture ={familyPic} order={"right"}/>
+      <Entry id="myHobbies" title={myHobbyTitle} paragraph ={myHobbySection} picture ={trailRide} order={"left"}/>
       <Quals/>
     </div>
   );

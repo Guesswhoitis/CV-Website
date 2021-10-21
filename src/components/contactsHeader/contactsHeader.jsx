@@ -22,13 +22,13 @@ class ContactsHeader extends Component {
 
                 <div class="header__innerDiv">
                     <h1>
-                        <a class="header__text" href="/#Who Am I?">Who am I?</a>
+                        <a class="header__text" href="/#whoAmI">Who am I?</a>
                     </h1>
                     <h1>
-                        <a class="header__text" href="/#My Hobbies!">My Hobbies</a>
+                        <a class="header__text" href="/#myHobbies">My Hobbies</a>
                     </h1>
                     <h1>
-                        <a class="header__text" href="/#My Qualifications"> My Qualifications</a>
+                        <a class="header__text" href="/#myQualifications"> My Qualifications</a>
                     </h1>
                 </div>
 

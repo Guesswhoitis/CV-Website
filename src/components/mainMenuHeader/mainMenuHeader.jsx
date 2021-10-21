@@ -6,7 +6,7 @@ class MainMenuHeader extends Component {
     render() {
 
         document.addEventListener('scroll', function (e) {
-            const rect = document.getElementById("videoPlayer").getBoundingClientRect();
+            const rect = document.getElementById("mainMenu__videoPlayer").getBoundingClientRect();
             if (rect.bottom <= 10) {
                 document.getElementById("header").style.filter = "invert(1)"
             } else {
@@ -23,7 +23,7 @@ class MainMenuHeader extends Component {
                     <a href="/">
                         <img src={logo} alt="Logo" />
                     </a>
-                    <a class="header__text" href="#videoPlayer">
+                    <a class="header__text" href="#mainMenu__videoPlayer">
                         <h1>James Hulena</h1>
                     </a>
 
@@ -31,13 +31,13 @@ class MainMenuHeader extends Component {
 
                 <div class="header__innerDiv">
                     <h1>
-                        <a class="header__text" href="#Who Am I?">Who am I?</a>
+                        <a class="header__text" href="#whoAmI">Who am I?</a>
                     </h1>
                     <h1>
-                        <a class="header__text" href="#My Hobbies!">My Hobbies</a>
+                        <a class="header__text" href="#myHobbies">My Hobbies</a>
                     </h1>
                     <h1>
-                        <a class="header__text" href="#My Qualifications"> My Qualifications</a>
+                        <a class="header__text" href="#myQualifications"> My Qualifications</a>
                     </h1>
                 </div>
 

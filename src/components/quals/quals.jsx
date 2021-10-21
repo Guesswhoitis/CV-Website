@@ -10,7 +10,7 @@ class Quals extends Component {
     render() {
         
             return (
-                <div class="quals" id ="My Qualifications">
+                <div class="quals" id ="myQualifications">
                     <h1 class = "quals__title">My Qualifications</h1>
                     <table>
                         <tr>

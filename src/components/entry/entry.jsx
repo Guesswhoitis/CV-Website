@@ -13,7 +13,7 @@ class Entry extends Component {
           
 
             return (
-                <div class="entry" id={this.props.title}>
+                <div class="entry" id={this.props.id}>
                     <h1 class = "entry__title">{this.props.title}</h1>
                     <div class="entry__info">
                         <img class="entry__picture" src={this.props.picture} alt="me" />
@@ -25,7 +25,7 @@ class Entry extends Component {
             );
         }else{
             return (
-                <div class="entry" id={this.props.title}>
+                <div class="entry" id={this.props.id}>
                     <h1 class = "entry__title">{this.props.title}</h1>
                     <div class="entry__info">
                         <p class="entry__personalStatement">
