@@ -4,6 +4,12 @@ import './index.css';
 import App from './pages/mainMenu/App';
 import reportWebVitals from './reportWebVitals';
 
+
+
+
+
+
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
