@@ -1,29 +1,29 @@
-.whoAmI{
-    margin-top: 15vh;
+.entry{
     width: 90%;
-    height: 50vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    border-bottom: 1px solid black;
 }
-
-.whoAmI__title{
+.entry__title{
     font-size: 8vh;
 }
-.whoAmI__info{
+.entry__info{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.whoAmI__personalStatement{
+.entry__personalStatement{
     width: 40vw;
     height: 40vh;
     text-align: left;
     font-size: 2rem;
 }
 
-.whoAmI__picture{
+.entry__picture{
     width: 50rem;
     height: auto;
     object-fit: scale-down;
 }
+

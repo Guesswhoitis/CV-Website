@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from './logo1.png'
+import logo from '../../assets/logo1.png'
 import "./mainMenuHeader.css"
 
 class MainMenuHeader extends Component {
@@ -7,7 +7,7 @@ class MainMenuHeader extends Component {
 
         document.addEventListener('scroll', function(e) {
             const rect = document.getElementById("videoPlayer").getBoundingClientRect();
-            if(rect.bottom <=10){
+            if(rect.bottom <= 10){
                 document.getElementById("header").style.filter = "invert(1)"
             }else{
                 document.getElementById("header").style.filter = "invert(0)"
@@ -28,10 +28,10 @@ class MainMenuHeader extends Component {
 
                 <div class="header__innerDiv">
                     <h1>
-                        <a class="header__text" href="#whoAmI">Who am I?</a>
+                        <a class="header__text" href="#Who Am I?">Who am I?</a>
                     </h1>
                     <h1>
-                        <a class="header__text" href="/goSomewhere">My Hobbies</a>
+                        <a class="header__text" href="#My Hobbies!">My Hobbies</a>
                     </h1>
                     <h1>
                         <a class="header__text" href="/goSomewhere"> My Qualifications</a>
