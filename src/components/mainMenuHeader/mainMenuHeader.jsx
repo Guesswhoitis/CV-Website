@@ -42,7 +42,7 @@ class MainMenuHeader extends Component {
                 </div>
 
                 <h1>
-                    <a class="header__text" href="/goSomewhere">Contact</a>
+                    <a class="header__text" href="/Contact">Contact</a>
                 </h1>
             </div>
         );

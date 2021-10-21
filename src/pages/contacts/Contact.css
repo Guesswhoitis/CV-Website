@@ -1,0 +1,44 @@
+.Contact{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.contact__backgroundVideo{
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.contact__mainText{
+  text-align: left;
+  width: 30vw;
+  color: white;
+  font-size: 3vh;
+}
+
+.contact__mainDisplay{
+  position: absolute;
+  top:25vh;
+  left: 15vw;
+  right:15vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-around;
+}
+
+.contact__contactInfo{
+  filter: invert(1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vh;
+  
+}
+
+.contact__contactInfo__text{
+  color: black;
+}
