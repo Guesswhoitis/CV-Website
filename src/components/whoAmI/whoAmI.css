@@ -1,0 +1,29 @@
+.whoAmI{
+    margin-top: 15vh;
+    width: 90%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.whoAmI__title{
+    font-size: 8vh;
+}
+.whoAmI__info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.whoAmI__personalStatement{
+    width: 40vw;
+    height: 40vh;
+    text-align: left;
+    font-size: 2rem;
+}
+
+.whoAmI__picture{
+    width: 50rem;
+    height: auto;
+    object-fit: scale-down;
+}
