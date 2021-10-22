@@ -20,6 +20,9 @@
   width: 30vw;
   color: white;
   font-size: 35px;
+  background-color: rgba(31, 31, 31, 0.2);
+  border-radius: 25px;
+ 
 }
 
 @media screen and (max-width:2200px) {
@@ -29,7 +32,7 @@
 }
 @media screen and (max-width:1600px) {
   .mainMenu__overVideoText{
-    top:40vh;
+    top:42vh;
     font-size: 25px;
   }
 }
