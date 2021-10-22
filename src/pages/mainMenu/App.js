@@ -12,7 +12,7 @@ function App() {
   var whoAmITitle = "Who Am I?"
   var whoAmISection = "BEAR WITH ME IM GONNA REWRITE THIS: I am just some software developer dude looking to kick start my career in the IT industry. I love to work with a good team of passionate people who are able to work well together. I want to be able to develop a good relationship with my co-workers. I believe having a good relationship with co-workers promotes productivity and increases morale. I really enjoy learning new things from people who have walked the walk. Being able to utilise more senior people's knowledge is my favourite way to learn. In the future I want to be able to share my experience through teaching. I want to teach maths, physics and computer science at lower decile schools in the hope that I can inspire kids to do well and further their education."
 
-  var myHobbyTitle = "My Hobbies!"
+  var myHobbyTitle = "My Hobbies"
   var myHobbySection = "I have a few cool hobbies! I love taking my bike out on trail rides! I love playing my guitar! I love reading books! I play probably way too many video games! and..... ahhh... I think that's it really. Here's a picture we took on a trail ride a few months ago."
 
   

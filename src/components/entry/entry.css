@@ -7,23 +7,51 @@
     border-bottom: 1px solid black;
 }
 .entry__title{
-    font-size: 8vh;
+    font-size: 8vmin;
 }
+
 .entry__info{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    font-size: 10px;
 }
-.entry__personalStatement{
+
+.entry__text{
     width: 40vw;
     height: 40vh;
     text-align: left;
-    font-size: 2rem;
+    font-size: 2vmin;
 }
 
 .entry__picture{
-    width: 50rem;
+    width: 45vw;
     height: auto;
-    object-fit: scale-down;
+    max-height: 50vh;
+    object-fit: contain;
 }
+
+
+@media screen and (max-width:1000px){
+    .entry__info{
+        display: block;
+    }
+
+    .entry__text{
+        width: 90vw;
+        font-size: 20px;
+        
+    }
+
+    .entry__picture{
+        display: none;
+    }
+}
+
+
+
+
+
+
+
 

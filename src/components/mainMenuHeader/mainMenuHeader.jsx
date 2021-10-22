@@ -23,9 +23,9 @@ class MainMenuHeader extends Component {
                     <a href="/">
                         <img src={logo} alt="Logo" />
                     </a>
-                    <a class="header__text" href="#mainMenu__videoPlayer">
-                        <h1>James Hulena</h1>
-                    </a>
+                    <h1>
+                        <a class="header__text__name" href="#mainMenu__videoPlayer">James Hulena</a>
+                    </h1>
 
                 </div>
 
@@ -34,15 +34,15 @@ class MainMenuHeader extends Component {
                         <a class="header__text" href="#whoAmI">Who am I?</a>
                     </h1>
                     <h1>
-                        <a class="header__text" href="#myHobbies">My Hobbies</a>
+                        <a class="header__text" href="#myHobbies">Hobbies</a>
                     </h1>
                     <h1>
-                        <a class="header__text" href="#myQualifications"> My Qualifications</a>
+                        <a class="header__text" href="#myQualifications">Qualifications</a>
                     </h1>
                 </div>
 
                 <h1>
-                    <a class="header__text" href="/Contact">Contact</a>
+                    <a class="header__text__contact" href="/Contact">Contact</a>
                 </h1>
             </div>
         );

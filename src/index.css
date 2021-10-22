@@ -1,6 +1,7 @@
 :root{
   --title-color: white;
   scroll-behavior: smooth;
+  font-size: 100%;
 }
 
 body {
@@ -19,4 +20,5 @@ code {
 
 .root{
   width: 100%;
+  
 }
