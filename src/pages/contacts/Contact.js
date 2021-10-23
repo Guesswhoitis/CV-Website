@@ -1,7 +1,7 @@
 import './Contact.css';
 import Header from '../../components/Header/header';
 import backGround from '../../assets/ContactsLoop.mp4';
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaEnvelope, FaDiscord } from "react-icons/fa";
 import SendAMessage from '../../components/sendAMessage/sendAMessage';
 function Contact() {
 
@@ -31,11 +31,16 @@ function Contact() {
           </div>
 
           <div class="contact__contactInfo__entry">
+            <p class="contact__contactInfo__text">Timbo#0806</p>
+            <FaDiscord />
+          </div>
+
+          <div class="contact__contactInfo__entry">
             <p class="contact__contactInfo__text">Jameshulena1@gmail.com</p>
             <FaEnvelope />
           </div>
 
-
+         
 
         </div>
       </div>
