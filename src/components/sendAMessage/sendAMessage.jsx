@@ -36,14 +36,27 @@ class SendAMessage extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
+
+        var letters = /^[A-Za-z]+$/;
+        var emailRegex = /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/;
+        
+
+        if(!this.state.name.match(letters)){
+            alert("Your name must only contain letters")
+        }
+
+        if(!this.state.email.match(emailRegex)){
+            alert("Your email must be of valid format")
+        }
+
+        if(!this.state.message.match(letters)){
+            alert("Your message must only contain letters")
+        }
         
         postToDb(this.state.name,this.state.email,this.state.message);
+        window.location.reload()
         
     }
-
-
-
-
 
     render() {
         return (
