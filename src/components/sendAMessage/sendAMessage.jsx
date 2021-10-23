@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ServerComms from './serverComms'
+import {postToDb} from './serverComms'
 import "./sendAMessage.css"
 
 
@@ -37,7 +37,7 @@ class SendAMessage extends Component {
     handleSubmit(event) {
         event.preventDefault();
         
-        postMessage(this.state.name,this.state.email,this.state.message);
+        postToDb(this.state.name,this.state.email,this.state.message);
         
     }
 

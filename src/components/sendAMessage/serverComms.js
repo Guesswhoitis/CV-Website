@@ -1,30 +1,22 @@
 
 
-class ServerComms{
+export function postToDb(name,email,message) {
 
-    constructor() {
-        var dataBaseIp = "";
-        var dataBasePort=""
+    var dataBaseIp ="http://localhost";
+
+    var dataBasePort="4000";
+
+    var toPost = {
+        name:name,
+        email:email,
+        message:message
     }
 
-    postToDb(name,email,message) {
-
-        var toPost = {
-            name:name,
-            email:email,
-            message:message
-        }
-
-      window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
-        method:'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(toPost)
-      })
-    }
-    
-
-
-    
+  window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
+    method:'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(toPost)
+  })
 }
