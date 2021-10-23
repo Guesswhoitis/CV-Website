@@ -28,7 +28,7 @@ class MainMenuHeader extends Component {
                         <img src={logo} alt="Logo" />
                     </a>
                     <h1>
-                        <a class="mainMenu__header__text__name" href="#mainMenu__videoPlayer">James Hulena</a>
+                        <a class="mainMenu__header__text__name" href="/#mainMenu__videoPlayer">James Hulena</a>
                     </h1>
 
                 </div>
