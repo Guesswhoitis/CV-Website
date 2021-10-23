@@ -73,3 +73,14 @@
 
 
 }
+
+@media screen and (max-width:380px) {
+ 
+  .contact__contactInfo__entry{
+    font-size: 7rem;
+  }
+
+ 
+
+
+}

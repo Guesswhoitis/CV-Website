@@ -5,6 +5,8 @@ import "./mainMenuHeader.css"
 class MainMenuHeader extends Component {
     render() {
 
+
+
         document.addEventListener('scroll', function (e) {
             const rect = document.getElementById("mainMenu__videoPlayer").getBoundingClientRect();
             if (rect.bottom <= 10) {
@@ -33,13 +35,13 @@ class MainMenuHeader extends Component {
 
                 <div class="mainMenu__header__innerDiv">
                     <h1>
-                        <a class="mainMenu__header__text" href="#whoAmI">Who am I?</a>
+                        <a class="mainMenu__header__text" href="/#whoAmI">Who am I?</a>
                     </h1>
                     <h1>
-                        <a class="mainMenu__header__text" href="#myHobbies">Hobbies</a>
+                        <a class="mainMenu__header__text" href="/#myHobbies">Hobbies</a>
                     </h1>
                     <h1>
-                        <a class="mainMenu__header__text" href="#myQualifications">Qualifications</a>
+                        <a class="mainMenu__header__text" href="/#myQualifications">Qualifications</a>
                     </h1>
                 </div>
 

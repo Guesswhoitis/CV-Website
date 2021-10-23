@@ -1,12 +1,12 @@
 import './Contact.css';
-import ContactsHeader from '../../components/contactsHeader/contactsHeader';
+import MainMenuHeader from '../../components/mainMenuHeader/mainMenuHeader';
 import backGround from '../../assets/ContactsLoop.mp4';
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 function Contact() {
 
   return (
     <div id="contact" className="Contact">
-      <ContactsHeader />
+      <MainMenuHeader />
       <video id="contact__videoPlayer" class="contact__backgroundVideo" width="1920" height="1080" autoPlay muted loop>
         <source src={backGround} type="video/mp4" />
       </video>
