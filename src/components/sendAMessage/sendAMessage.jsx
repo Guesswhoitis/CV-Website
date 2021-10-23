@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FaArrowAltCircleRight} from "react-icons/fa";
+import ServerComms from './serverComms'
 import "./sendAMessage.css"
 
 
@@ -35,8 +35,10 @@ class SendAMessage extends Component {
         this.setState({ message: event.target.value });
     }
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.name + this.state.message + this.state.email);
         event.preventDefault();
+        
+        postMessage(this.state.name,this.state.email,this.state.message);
+        
     }
 
 
