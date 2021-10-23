@@ -1,6 +1,6 @@
 import './Contact.css';
 import ContactsHeader from '../../components/contactsHeader/contactsHeader';
-import backGround from '../../assets/contactsLoop.mp4';
+import backGround from '../../assets/ContactsLoop.mp4';
 import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 function Contact() {
 
