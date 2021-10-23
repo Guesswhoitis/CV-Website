@@ -1,5 +1,5 @@
 import './App.css';
-import MainMenuHeader from '../../components/mainMenuHeader/mainMenuHeader';
+import Header from '../../components/Header/header';
 import backGround from '../../assets/backgroundLoop.mp4';
 import Entry from '../../components/entry/entry';
 import familyPic from '../../assets/me.jpg';
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <MainMenuHeader/>
+      <Header/>
       <video id="mainMenu__videoPlayer" class="mainMenu__backgroundVideo" width="1920" height="1080" autoPlay muted loop>
         <source src={backGround} type="video/mp4"/>
       </video>
