@@ -1,6 +1,6 @@
 .quals{
     width: 100%;
-    font-size: 3vh;
+    font-size: 3rem;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -8,8 +8,7 @@
     
 }
 .quals__title{
-    font-size: 10vmin;
-    margin-top: 20vh;
+    font-size: 9rem;
 }
 
 table {

@@ -8,7 +8,7 @@ class Entry extends Component {
 
 
     render() {
-        if(this.props.order == "left"){
+        if(this.props.order === "left"){
             return (
                 <div class="entry" id={this.props.id}>
                     <h1 class = "entry__title">{this.props.title}</h1>

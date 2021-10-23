@@ -15,39 +15,24 @@
 .mainMenu__overVideoText{
   position: absolute;
   text-align: left;
-  top:30vh;
-  left: 15vw;
+  top:50vh;
+  left: 12vw;
   width: 30vw;
   color: white;
-  font-size: 35px;
+  font-size: 3rem;
   background-color: rgba(31, 31, 31, 0.2);
   border-radius: 25px;
- 
+  
 }
 
-@media screen and (max-width:2200px) {
-  .mainMenu__overVideoText{
-    font-size: 30px;
-  }
-}
-@media screen and (max-width:1600px) {
-  .mainMenu__overVideoText{
-    top:42vh;
-    font-size: 25px;
-  }
+.mainMenu__overVideoText > h2 {
+  padding: 1rem;
+  margin: 0;
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:480px) {
   .mainMenu__overVideoText{
     width: 50vw;
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width:900px) {
-  .mainMenu__overVideoText{
-    width: 60vw;
-    font-size: 15px;
   }
 }
 

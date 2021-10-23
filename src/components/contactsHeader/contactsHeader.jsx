@@ -5,7 +5,7 @@ import "./contactsHeader.css"
 class ContactsHeader extends Component {
     render() {
 
-        
+
 
 
         return (
@@ -14,10 +14,9 @@ class ContactsHeader extends Component {
                     <a href="/">
                         <img src={logo} alt="Logo" />
                     </a>
-                    <a class="header__text" href="/#videoPlayer">
-                        <h1>James Hulena</h1>
-                    </a>
-
+                    <h1>
+                        <a class="header__text__name" href="/#videoPlayer">James Hulena</a>
+                    </h1>
                 </div>
 
                 <div class="header__innerDiv">
@@ -33,7 +32,7 @@ class ContactsHeader extends Component {
                 </div>
 
                 <h1>
-                    <a class="header__text" href="/Contact">Contact</a>
+                    <a class="header__text__contact" href="/Contact">Contact</a>
                 </h1>
             </div>
         );

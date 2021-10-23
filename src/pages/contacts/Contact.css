@@ -1,8 +1,8 @@
 .Contact{
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .contact__backgroundVideo{
@@ -13,20 +13,19 @@
 
 .contact__mainText{
   text-align: left;
-  width: 30vw;
+  width: 40vw;
   color: white;
-  font-size: 3vh;
+  font-size: 4rem;
 }
 
 .contact__mainDisplay{
   position: absolute;
+  width: 90%;
   top:25vh;
-  left: 15vw;
-  right:15vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-content: space-around;
+  align-content: space-between;
 }
 
 .contact__contactInfo{
@@ -34,11 +33,43 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  font-size: 5vh;
+
+  font-size: 8rem;
   
 }
 
 .contact__contactInfo__text{
   color: black;
+  padding-right: 2vw;
+  
+}
+
+.contact__contactInfo__entry{
+  right: 0px;
+  width: 45vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media screen and (max-width:800px) {
+  .contact__mainDisplay{
+    align-items:  center;
+    flex-direction: column;
+    width: 100vw;
+  }
+  .contact__contactInfo__entry{
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+  }
+
+  .contact__mainText{
+   text-align: center;
+    width: 100vw;
+    
+  }
+
+
 }

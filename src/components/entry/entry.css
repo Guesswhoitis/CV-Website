@@ -1,13 +1,12 @@
 .entry{
     width: 90%;
-    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-bottom: 1px solid black;
 }
 .entry__title{
-    font-size: 8vmin;
+    font-size: 9rem;
 }
 
 .entry__info{
@@ -19,9 +18,9 @@
 
 .entry__text{
     width: 40vw;
-    height: 40vh;
+    height: 50vh;
     text-align: left;
-    font-size: 2vmin;
+    font-size: 3rem;
     margin-bottom: 5vh;
 }
 
@@ -33,35 +32,35 @@
     margin-bottom: 5vh;
 }
 
+@media screen and (max-width:1300px){
+    .entry__text{
+        font-size: 4rem;  
+    }
+}
 
-@media screen and (max-width:1000px){
+@media screen and (max-width:1100px){
     .entry__info{
         flex-direction: column;
         align-items: center;
     }
-
     .entry__text{
-        width: 90vw;
-        font-size: 20px;
-        
+        font-size: 5rem;
+        width: 90vw;   
     }
 
     .entry__picture{
         width: 90vw;
-        height: auto;
     }
-
 }
 
-@media screen and (max-width:700px){  
+@media screen and (max-width:450px){
+   
     .entry__text{
-       
-        font-size: 15px;
-        
+        font-size: 4rem;  
     }
+
+    
 }
-
-
 
 
 
