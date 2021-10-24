@@ -50,7 +50,7 @@ class SendAMessage extends Component {
         
         if (this._reCaptchaRef.current.getValue() !== null) {
             var letters = /^[\.a-zA-Z0-9,!? ]*$/;
-            var emailRegex = /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/;
+            var emailRegex = /^[\.a-zA-Z0-9,!? ]+@[\.a-zA-Z0-9,!? ]+\.[\.a-zA-Z0-9,!? ]+$/;
 
 
             if (!this.state.name.match(letters)) {
@@ -94,8 +94,9 @@ class SendAMessage extends Component {
         },
         body: JSON.stringify(toPost)
       }).then(()=>{
-        document.getElementById('sendAMessage__inputBox').value = ''
-        document.getElementById('sendAMessage__inputBox__message').value = ''
+        this.state.name=''
+        this.state.email=''
+        this.state.message=''
       })
 
       
