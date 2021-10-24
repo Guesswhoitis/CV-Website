@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { postToDb } from './serverComms'
+// import { postToDb } from './serverComms'
 import ReCAPTCHA from "react-google-recaptcha";
 import "./sendAMessage.css"
 
@@ -65,13 +65,34 @@ class SendAMessage extends Component {
                 alert("Your message must only contain letters")
             }
 
-            await postToDb(this.state.name, this.state.email, this.state.message);
+            postToDb(this.state.name, this.state.email, this.state.message);
             // window.location.reload()
         }else{
             alert("Please Complete Recaptcha")
         }
 
 
+    }
+
+    postToDb(name,email,message) {
+
+        var dataBaseIp ="http:/james.bombsquad.co.nz";
+    
+        var dataBasePort="4000";
+    
+        var toPost = {
+            name:name,
+            email:email,
+            message:message
+        }
+    
+      window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(toPost)
+      })
     }
 
     render() {
