@@ -93,7 +93,10 @@ class SendAMessage extends Component {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(toPost)
-      }).then(window.location.reload())
+      }).then(()=>{
+        document.getElementById('sendAMessage__inputBox').value = ''
+        document.getElementById('sendAMessage__inputBox__message').value = ''
+      })
 
       
     }
@@ -105,16 +108,16 @@ class SendAMessage extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Name:
-                        <input class="sendAMessage__inputBox" type="text" value={this.state.name} onChange={this.handleNameChange} />
+                        <input id="sendAMessage__inputBox" class="sendAMessage__inputBox" type="text" value={this.state.name} onChange={this.handleNameChange} />
                     </label>
                     <label>
                         Email:
-                        <input class="sendAMessage__inputBox" type="text" value={this.state.email} onChange={this.handleEmailChange} />
+                        <input id="sendAMessage__inputBox" class="sendAMessage__inputBox" type="text" value={this.state.email} onChange={this.handleEmailChange} />
                     </label>
                     <label>
                         Message:
                         {/* <input class="sendAMessage__inputBox__message" type="text" value={this.state.message} onChange={this.handleMessageChange} /> */}
-                        <textarea name="Text1" cols="40" rows="5" class="sendAMessage__inputBox__message" type="text" value={this.state.message} onChange={this.handleMessageChange}></textarea>
+                        <textarea name="Text1" id="sendAMessage__inputBox__message" cols="40" rows="5" class="sendAMessage__inputBox__message" type="text" value={this.state.message} onChange={this.handleMessageChange}></textarea>
                     </label>
                     <ReCAPTCHA
                         sitekey={recapKey}
