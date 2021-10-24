@@ -10,6 +10,8 @@ const recapKey = "6LfHkO0cAAAAACTtLl03HCzSLSHYIIT0LMmGXvsk";
 
 class SendAMessage extends Component {
 
+    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -18,17 +20,17 @@ class SendAMessage extends Component {
             message: ''
         };
 
-        this.canSend = "false";
-
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleMessageChange = this.handleMessageChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        this._reCaptchaRef = React.createRef();
     }
 
     onRecapChange(value) {
-        this.canSend = true;
-        if(value===null) this.canSend=false; 
+        
+    
     }
 
 
@@ -46,7 +48,7 @@ class SendAMessage extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        if (this.canSend === true) {
+        if (this._reCaptchaRef.current.getValue() !== null) {
             var letters = /^[A-Za-z]+$/;
             var emailRegex = /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/;
 
@@ -93,6 +95,7 @@ class SendAMessage extends Component {
                     <ReCAPTCHA
                         sitekey={recapKey}
                         onChange={this.onRecapChange}
+                        ref={this._reCaptchaRef}
                     />
                     <input class="sendAMessage__submit" type="submit" value="Submit" />
 
