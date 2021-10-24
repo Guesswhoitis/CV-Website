@@ -1,6 +1,6 @@
 
 
-export function postToDb(name,email,message) {
+export async function postToDb(name,email,message) {
 
     var dataBaseIp ="http:/james.bombsquad.co.nz";
 

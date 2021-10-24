@@ -65,7 +65,7 @@ class SendAMessage extends Component {
                 alert("Your message must only contain letters")
             }
 
-            postToDb(this.state.name, this.state.email, this.state.message);
+            await postToDb(this.state.name, this.state.email, this.state.message);
             // window.location.reload()
         }else{
             alert("Please Complete Recaptcha")
