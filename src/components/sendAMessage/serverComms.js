@@ -2,7 +2,7 @@
 
 export function postToDb(name,email,message) {
 
-    var dataBaseIp ="http://127.0.0.1";
+    var dataBaseIp ="http:/james.bombsquad.co.nz";
 
     var dataBasePort="4000";
 
