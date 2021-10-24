@@ -49,7 +49,7 @@ class SendAMessage extends Component {
         event.preventDefault();
         
         if (this._reCaptchaRef.current.getValue() !== null) {
-            var letters = /^[A-Za-z]+$/;
+            var letters = /^[\.a-zA-Z0-9,!? ]*$/;
             var emailRegex = /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/;
 
 
@@ -66,7 +66,7 @@ class SendAMessage extends Component {
             }
 
             this.postToDb(this.state.name, this.state.email, this.state.message);
-            // window.location.reload()
+            window.location.reload()
         }else{
             alert("Please Complete Recaptcha")
         }
@@ -86,7 +86,6 @@ class SendAMessage extends Component {
             message:message
         };
     
-        console.log("About to post");
         window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
         method:'POST',
         headers: {

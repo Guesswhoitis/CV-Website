@@ -7,6 +7,14 @@
     justify-content: center;
     border-bottom: 1px solid black;
 }
+@media screen and (max-width:1300px){
+    .sendAMessage__inputBox{
+        width:100vw;
+    }
+    .sendAMessage__submit{
+        width:100vw;
+    }
+}
 
 .sendAMessage__title{
     font-size: 5rem;
