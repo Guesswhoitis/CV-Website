@@ -66,7 +66,7 @@ class SendAMessage extends Component {
             }
 
             this.postToDb(this.state.name, this.state.email, this.state.message);
-            window.location.reload()
+           
         }else{
             alert("Please Complete Recaptcha")
         }
@@ -86,13 +86,16 @@ class SendAMessage extends Component {
             message:message
         };
     
+
         window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(toPost)
-      })
+      }).then(window.location.reload())
+
+      
     }
 
     render() {
