@@ -65,6 +65,8 @@ class SendAMessage extends Component {
 
             postToDb(this.state.name, this.state.email, this.state.message);
             window.location.reload()
+        }else{
+            alert("Please Complete Recaptcha")
         }
 
 
