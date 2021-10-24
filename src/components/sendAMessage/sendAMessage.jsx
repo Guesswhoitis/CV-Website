@@ -47,7 +47,7 @@ class SendAMessage extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-
+        console.log("Working");
         if (this._reCaptchaRef.current.getValue() !== null) {
             var letters = /^[A-Za-z]+$/;
             var emailRegex = /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/;
