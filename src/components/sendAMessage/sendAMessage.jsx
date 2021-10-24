@@ -47,7 +47,7 @@ class SendAMessage extends Component {
     }
     handleSubmit(event) {
         event.preventDefault();
-        console.log("Working");
+        
         if (this._reCaptchaRef.current.getValue() !== null) {
             var letters = /^[A-Za-z]+$/;
             var emailRegex = /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/;
@@ -71,22 +71,23 @@ class SendAMessage extends Component {
             alert("Please Complete Recaptcha")
         }
 
-
+        
     }
 
     postToDb(name,email,message) {
 
-        var dataBaseIp ="http:/james.bombsquad.co.nz";
+        var dataBaseIp ="http://james.bombsquad.co.nz";
     
         var dataBasePort="4000";
-    
+        
         var toPost = {
             name:name,
             email:email,
             message:message
-        }
+        };
     
-      window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
+        console.log("About to post");
+        window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
