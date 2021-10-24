@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import {postToDb} from './serverComms'
+import { postToDb } from './serverComms'
+import ReCAPTCHA from "react-google-recaptcha";
 import "./sendAMessage.css"
 
 
+const recapKey = "6LfHkO0cAAAAACTtLl03HCzSLSHYIIT0LMmGXvsk";
 
 
 
@@ -16,13 +18,20 @@ class SendAMessage extends Component {
             message: ''
         };
 
+        this.canSend = "false";
+
         this.handleNameChange = this.handleNameChange.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleMessageChange = this.handleMessageChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
- 
+    onRecapChange(value) {
+        this.canSend = true;
+        if(value===null) this.canSend=false; 
+    }
+
+
     handleNameChange(event) {
         this.setState({ name: event.target.value });
     }
@@ -37,25 +46,28 @@ class SendAMessage extends Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        var letters = /^[A-Za-z]+$/;
-        var emailRegex = /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/;
-        
+        if (this.canSend === true) {
+            var letters = /^[A-Za-z]+$/;
+            var emailRegex = /^[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]+$/;
 
-        if(!this.state.name.match(letters)){
-            alert("Your name must only contain letters")
+
+            if (!this.state.name.match(letters)) {
+                alert("Your name must only contain letters")
+            }
+
+            if (!this.state.email.match(emailRegex)) {
+                alert("Your email must be of valid format")
+            }
+
+            if (!this.state.message.match(letters)) {
+                alert("Your message must only contain letters")
+            }
+
+            postToDb(this.state.name, this.state.email, this.state.message);
+            window.location.reload()
         }
 
-        if(!this.state.email.match(emailRegex)){
-            alert("Your email must be of valid format")
-        }
 
-        if(!this.state.message.match(letters)){
-            alert("Your message must only contain letters")
-        }
-        
-        postToDb(this.state.name,this.state.email,this.state.message);
-        window.location.reload()
-        
     }
 
     render() {
@@ -76,7 +88,12 @@ class SendAMessage extends Component {
                         {/* <input class="sendAMessage__inputBox__message" type="text" value={this.state.message} onChange={this.handleMessageChange} /> */}
                         <textarea name="Text1" cols="40" rows="5" class="sendAMessage__inputBox__message" type="text" value={this.state.message} onChange={this.handleMessageChange}></textarea>
                     </label>
-                    <input class="sendAMessage__submit" type="submit" value="Submit"/>
+                    <ReCAPTCHA
+                        sitekey={recapKey}
+                        onChange={this.onRecapChange}
+                    />
+                    <input class="sendAMessage__submit" type="submit" value="Submit" />
+
                 </form>
 
             </div>
