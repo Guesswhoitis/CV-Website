@@ -3,7 +3,11 @@ import logo from '../../assets/logo1.png'
 import "./header.css"
 
 
-
+/**
+ * Checks if the header is below the passed in rectangle
+ * if so, invert colors, set translucent white background 
+ * @param {*} rect 
+ */
 function checkBoundingBox(rect) {
     if (rect.bottom <= 10) {
         document.getElementById("header").style.filter = "invert(1)"
@@ -12,13 +16,16 @@ function checkBoundingBox(rect) {
         document.getElementById("header").style.filter = "invert(0)"
         document.getElementById("header").style.backgroundColor = "rgba(31, 31, 31, 0.0)"
     }
-
 }
 
 class Header extends Component {
 
-
-
+    /**
+     * Listens for scroll event
+     * checks if the videos on the pages exsist
+     * if so creates bounding box and passes it to get checked
+     * @returns Header for page
+     */
     render() {
         document.addEventListener('scroll', function (e) {
 

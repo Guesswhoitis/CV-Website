@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-// import { postToDb } from './serverComms'
+import { postToDb } from './serverComms'
 import ReCAPTCHA from "react-google-recaptcha";
 import "./sendAMessage.css"
 
 
-const recapKey = "6LfHkO0cAAAAACTtLl03HCzSLSHYIIT0LMmGXvsk";
+const recapKey = "6LfHkO0cAAAAACTtLl03HCzSLSHYIIT0LMmGXvsk"; //key for the recaptcha
 
 
 
@@ -12,60 +12,88 @@ class SendAMessage extends Component {
 
     
 
-    constructor(props) {
-        super(props);
-        this.state = {
+    constructor() {
+        this.state = { //stores the users info and message to send to server
             name: '',
             email: '',
             message: ''
         };
 
-        this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleNameChange = this.handleNameChange.bind(this); //links methods
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleMessageChange = this.handleMessageChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
-        this._reCaptchaRef = React.createRef();
+        this._reCaptchaRef = React.createRef();//creates reference to recaptcha
     }
 
+
+    /**
+     * Method for recaptcha running.
+     * @param {*} value 
+     */
     onRecapChange(value) {
         
-    
     }
 
-
+    /**
+     * Method to handle name text input change
+     * @param {*} event 
+     */
     handleNameChange(event) {
         this.setState({ name: event.target.value });
     }
 
+    /**
+     * Method to handle email text input change
+     * @param {*} event 
+     */
     handleEmailChange(event) {
         this.setState({ email: event.target.value });
     }
 
+    /**
+     * Method to handle the message text textArea change
+     * @param {*} event 
+     */
     handleMessageChange(event) {
         this.setState({ message: event.target.value });
     }
+
+    /**
+     * Handles submit button press.
+     * Checks if recaptcha has been completed
+     * Checks if name, email, and message are valid text (This is meant to ensure the user can't inject code)
+     * sets text input and text area to empty
+     * calls method to send data to database
+     * 
+     * @param {*} event 
+     */
     handleSubmit(event) {
         event.preventDefault();
         
-        if (this._reCaptchaRef.current.getValue() !== null) {
-            var letters = /^[\.a-zA-Z0-9,!? ]*$/;
-            var emailRegex = /^[\.a-zA-Z0-9,!? ]+@[\.a-zA-Z0-9,!? ]+\.[\.a-zA-Z0-9,!? ]+$/;
+        if (this._reCaptchaRef.current.getValue() !== null) { //checks recaptcha ref to see if value is empty
+            var letters = /^[\.a-zA-Z0-9,!? ]*$/; //regex for checking if everything is a letter, space or some specific characters
+            var emailRegex = /^[\.a-zA-Z0-9,!? ]+@[\.a-zA-Z0-9,!? ]+\.[\.a-zA-Z0-9,!? ]+$/; // regex for checking if valid email
 
 
-            if (!this.state.name.match(letters)) {
+            if (!this.state.name.match(letters)) { //checks if name matches regex
                 alert("Your name must only contain letters")
             }
 
-            if (!this.state.email.match(emailRegex)) {
+            if (!this.state.email.match(emailRegex)) {  //checks if email matches regex
                 alert("Your email must be of valid format")
             }
 
-            if (!this.state.message.match(letters)) {
+            if (!this.state.message.match(letters)) {  //checks if message matches regex
                 alert("Your message must only contain letters")
             }
 
-            this.postToDb(this.state.name, this.state.email, this.state.message);
+            document.getElementById("sendAMessage__inputBox__message").value = ""; //sets test inputs to empty
+            document.getElementById("sendAMessage__inputBox__name").value = "";
+            document.getElementById("sendAMessage__inputBox__email").value = "";
+
+            postToDb(this.state.name, this.state.email, this.state.message); //calls method in ServerComms to send data to database
            
         }else{
             alert("Please Complete Recaptcha")
@@ -74,33 +102,33 @@ class SendAMessage extends Component {
         
     }
 
-    postToDb(name,email,message) {
+    // postToDb(name,email,message) {
 
-        var dataBaseIp ="http://james.bombsquad.co.nz";
+    //     var dataBaseIp ="http://james.bombsquad.co.nz";
     
-        var dataBasePort="4000";
+    //     var dataBasePort="4000";
         
-        var toPost = {
-            name:name,
-            email:email,
-            message:message
-        };
+    //     var toPost = {
+    //         name:name,
+    //         email:email,
+    //         message:message
+    //     };
     
 
-        window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
-        method:'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(toPost)
-      }).then(()=>{
-        this.state.name=''
-        this.state.email=''
-        this.state.message=''
-      })
+    //     window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
+    //     method:'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(toPost)
+    //   }).then(()=>{
+    //     this.state.name=''
+    //     this.state.email=''
+    //     this.state.message=''
+    //   })
 
       
-    }
+    // }
 
     render() {
         return (
@@ -109,11 +137,11 @@ class SendAMessage extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Name:
-                        <input id="sendAMessage__inputBox" class="sendAMessage__inputBox" type="text" value={this.state.name} onChange={this.handleNameChange} />
+                        <input id="sendAMessage__inputBox__name" class="sendAMessage__inputBox" type="text" value={this.state.name} onChange={this.handleNameChange} />
                     </label>
                     <label>
                         Email:
-                        <input id="sendAMessage__inputBox" class="sendAMessage__inputBox" type="text" value={this.state.email} onChange={this.handleEmailChange} />
+                        <input id="sendAMessage__inputBox__email" class="sendAMessage__inputBox" type="text" value={this.state.email} onChange={this.handleEmailChange} />
                     </label>
                     <label>
                         Message:

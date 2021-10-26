@@ -16,7 +16,7 @@ function Contact() {
       <div class="contact__mainDisplay">
         <div class="contact__mainText">
           <h1>Wanna get a hold of me for whatever reason?</h1>
-          <p>Maybe it's to talk motorbikes? or maybe it's for me to do some work for you? Whatever it is here are a bunch of links where you can reach me!</p>
+          <p>Maybe it's to talk motorbikes? or maybe you have some work for me to do? Whatever it is here are a bunch of links where you can reach me!</p>
         </div>
 
         <div class="contact__contactInfo">
@@ -39,8 +39,6 @@ function Contact() {
             <p class="contact__contactInfo__text">Jameshulena1@gmail.com</p>
             <FaEnvelope />
           </div>
-
-         
 
         </div>
       </div>

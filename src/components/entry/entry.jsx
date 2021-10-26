@@ -3,10 +3,12 @@ import "./entry.css"
 
 class Entry extends Component {
 
-    
-    
-
-
+    /**
+     * checks of picture is on left or right
+     * displays, title, picture, and paragraph passed
+     * in from parent component
+     * @returns Entry component area
+     */
     render() {
         if(this.props.order === "left"){
             return (

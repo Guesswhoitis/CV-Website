@@ -3,10 +3,10 @@ import "./quals.css"
 
 class Quals extends Component {
 
-    
-    
-
-
+    /**
+     * 
+     * @returns A table containg my qualifications
+     */
     render() {
         
             return (
