@@ -38,7 +38,7 @@ class Header extends Component {
                 checkBoundingBox(rect);
             }
             
-            if (document.getElementById("footer") != null){  
+            if (document.getElementById("footer") != null){ //checks to see if the user has reached the bottom of the page, if so hide the header
                 const rect = document.getElementById("footer").getBoundingClientRect();
                 if (rect.top  <=10) {
                     document.getElementById("header").style.display = "none"
