@@ -112,7 +112,7 @@ class SendAMessage extends Component {
                 document.getElementById("sendAMessage__inputBox__name").value = "";
                 document.getElementById("sendAMessage__inputBox__email").value = "";
 
-                // postToDb(this.state.name, this.state.email, this.state.message); //calls method in ServerComms to send data to database
+                postToDb(this.state.name, this.state.email, this.state.message); //calls method in ServerComms to send data to database
                 this.setState({ name: "" });
                 this.setState({ email: "" });
                 this.setState({ message: "" });
