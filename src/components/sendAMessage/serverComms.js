@@ -8,7 +8,7 @@
  * @param {String} message 
  */
 export async function postToDb(name,email,message) {
-    var dataBaseIp ="http:/james.bombsquad.co.nz";
+    var dataBaseIp ="http://localHost";
 
     var dataBasePort="4000";
 

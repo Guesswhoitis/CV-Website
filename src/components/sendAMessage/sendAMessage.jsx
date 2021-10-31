@@ -5,26 +5,33 @@ import "./sendAMessage.css"
 
 
 const recapKey = "6LfHkO0cAAAAACTtLl03HCzSLSHYIIT0LMmGXvsk"; //key for the recaptcha
+const submitTimeout = 30; //length of submit button timeout
 
+var time = 0;
 
 
 class SendAMessage extends Component {
 
-    
+    //Date.now()/1000
+
+
 
     constructor() {
+        super()
         this.state = { //stores the users info and message to send to server
             name: '',
             email: '',
-            message: ''
+            message: '',
+            timeToGo:''
         };
 
         this.handleNameChange = this.handleNameChange.bind(this); //links methods
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleMessageChange = this.handleMessageChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-
         this._reCaptchaRef = React.createRef();//creates reference to recaptcha
+
+
     }
 
 
@@ -33,7 +40,7 @@ class SendAMessage extends Component {
      * @param {*} value 
      */
     onRecapChange(value) {
-        
+
     }
 
     /**
@@ -72,48 +79,69 @@ class SendAMessage extends Component {
     handleSubmit(event) {
         event.preventDefault();
         
-        if (this._reCaptchaRef.current.getValue() !== null) { //checks recaptcha ref to see if value is empty
-            var letters = /^[\.a-zA-Z0-9,!? ]*$/; //regex for checking if everything is a letter, space or some specific characters
-            var emailRegex = /^[\.a-zA-Z0-9,!? ]+@[\.a-zA-Z0-9,!? ]+\.[\.a-zA-Z0-9,!? ]+$/; // regex for checking if valid email
+
+        if ((Date.now() / 1000) - time >= submitTimeout) {
+
+            time = (Date.now() / 1000)
+            console.log(time);
+
+            if (this._reCaptchaRef.current.getValue() !== null) { //checks recaptcha ref to see if value is empty
+                var letters = /^[\.a-zA-Z0-9,!? ]*$/; //regex for checking if everything is a letter, space or some specific characters
+                var emailRegex = /^[\.a-zA-Z0-9,!? ]+@[\.a-zA-Z0-9,!? ]+\.[\.a-zA-Z0-9,!? ]+$/; // regex for checking if valid email
 
 
-            if (!this.state.name.match(letters)) { //checks if name matches regex
-                alert("Your name must only contain letters")
+                if (!this.state.name.match(letters)) { //checks if name matches regex
+                    alert("Your name must only contain letters")
+                    return;
+                }
+
+                if (!this.state.email.match(emailRegex)) {  //checks if email matches regex
+                    alert("Your email must be of valid format")
+                    return;
+                }
+
+                if (!this.state.message.match(letters)) {  //checks if message matches regex
+                    alert("Your message must only contain letters")
+                    return;
+                }
+
+                document.getElementById("sendAMessage__inputBox__message").value = ""; //sets test inputs to empty
+                document.getElementById("sendAMessage__inputBox__name").value = "";
+                document.getElementById("sendAMessage__inputBox__email").value = "";
+
+
+                // postToDb(this.state.name, this.state.email, this.state.message); //calls method in ServerComms to send data to database
+                this.setState({ name: "" });
+                this.setState({ email: "" });
+                this.setState({ message: "" });
+            } else {
+                alert("Please Complete Recaptcha")
             }
-
-            if (!this.state.email.match(emailRegex)) {  //checks if email matches regex
-                alert("Your email must be of valid format")
+        } else {
+            if (time != 0) {
+                this.state.timeToGo = (Date.now() / 1000) - time;
+                console.log((Date.now() / 1000) - time);
+                document.getElementById("sendAMessage__submitTime").style.display = "block"
             }
-
-            if (!this.state.message.match(letters)) {  //checks if message matches regex
-                alert("Your message must only contain letters")
-            }
-
-            document.getElementById("sendAMessage__inputBox__message").value = ""; //sets test inputs to empty
-            document.getElementById("sendAMessage__inputBox__name").value = "";
-            document.getElementById("sendAMessage__inputBox__email").value = "";
-
-            postToDb(this.state.name, this.state.email, this.state.message); //calls method in ServerComms to send data to database
-           
-        }else{
-            alert("Please Complete Recaptcha")
         }
 
-        
+
+
+
     }
 
     // postToDb(name,email,message) {
 
     //     var dataBaseIp ="http://james.bombsquad.co.nz";
-    
+
     //     var dataBasePort="4000";
-        
+
     //     var toPost = {
     //         name:name,
     //         email:email,
     //         message:message
     //     };
-    
+
 
     //     window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
     //     method:'POST',
@@ -127,7 +155,7 @@ class SendAMessage extends Component {
     //     this.state.message=''
     //   })
 
-      
+
     // }
 
     render() {
@@ -153,6 +181,7 @@ class SendAMessage extends Component {
                         onChange={this.onRecapChange}
                         ref={this._reCaptchaRef}
                     />
+                    <h2 id="sendAMessage__submitTime" class="sendAMessage__hidden">You can not submit for {submitTimeout - this.state.timeToGo } seconds</h2>
                     <input class="sendAMessage__submit" type="submit" value="Submit" />
 
                 </form>
