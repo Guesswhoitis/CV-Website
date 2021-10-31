@@ -42,7 +42,7 @@ label{
     background-color: rgb(200, 200, 200);
     width: 90vw;
     height: 10vh;
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .sendAMessage__submit{
@@ -58,6 +58,14 @@ label{
 }
 
 .sendAMessage__hidden{
+    font-size: 3rem;
+    color: red;
+    display: none;
+}
+
+.sendAMessage__success{
+    font-size: 4rem;
+    color: green;
     display: none;
 }
 p{

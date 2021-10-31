@@ -80,47 +80,52 @@ class SendAMessage extends Component {
         event.preventDefault();
         
 
-        if ((Date.now() / 1000) - time >= submitTimeout) {
+        if ((Date.now() / 1000) - time >= submitTimeout) { // checks if the button is timed out
 
             time = (Date.now() / 1000)
-            console.log(time);
 
             if (this._reCaptchaRef.current.getValue() !== null) { //checks recaptcha ref to see if value is empty
                 var letters = /^[\.a-zA-Z0-9,!? ]*$/; //regex for checking if everything is a letter, space or some specific characters
                 var emailRegex = /^[\.a-zA-Z0-9,!? ]+@[\.a-zA-Z0-9,!? ]+\.[\.a-zA-Z0-9,!? ]+$/; // regex for checking if valid email
 
 
-                if (!this.state.name.match(letters)) { //checks if name matches regex
-                    alert("Your name must only contain letters")
-                    return;
+                var failed=false;
+                if (!this.state.name.match(letters) || this.state.name.length ===0) { //checks if name matches regex and is not empty
+                    document.getElementById("sendAMessage_invalidName").style.display = "block";
+                    failed=true;
                 }
 
-                if (!this.state.email.match(emailRegex)) {  //checks if email matches regex
-                    alert("Your email must be of valid format")
-                    return;
+                if (!this.state.email.match(emailRegex) || this.state.email.length ===0) {  //checks if email matches regex and is not empty
+                    document.getElementById("sendAMessage_invalidEmail").style.display = "block";
+                    failed=true;
                 }
 
-                if (!this.state.message.match(letters)) {  //checks if message matches regex
-                    alert("Your message must only contain letters")
-                    return;
+                if (!this.state.message.match(letters) || this.state.message.length ===0) {  //checks if message matches regex and is not empty
+                    document.getElementById("sendAMessage_invalidMessage").style.display = "block";
+                    failed=true;
                 }
+
+                if(failed)return;
+
 
                 document.getElementById("sendAMessage__inputBox__message").value = ""; //sets test inputs to empty
                 document.getElementById("sendAMessage__inputBox__name").value = "";
                 document.getElementById("sendAMessage__inputBox__email").value = "";
 
-
                 // postToDb(this.state.name, this.state.email, this.state.message); //calls method in ServerComms to send data to database
                 this.setState({ name: "" });
                 this.setState({ email: "" });
                 this.setState({ message: "" });
+
+                document.getElementById("sendAMessage__success").style.display = "block";
+
             } else {
-                alert("Please Complete Recaptcha")
+                document.getElementById("sendAMessage__useRecap").style.display = "block";
             }
         } else {
-            if (time != 0) {
-                this.state.timeToGo = (Date.now() / 1000) - time;
-                console.log((Date.now() / 1000) - time);
+            if (time != 0) { 
+                var valToSet = Math.round((Date.now() / 1000) - time); // gets the amount of time elapsed 
+                this.setState({timeToGo:valToSet})
                 document.getElementById("sendAMessage__submitTime").style.display = "block"
             }
         }
@@ -162,20 +167,25 @@ class SendAMessage extends Component {
         return (
             <div className="sendAMessage" class="sendAMessage">
                 <h1 class="sendAMessage__title">Send me a message</h1>
+                <h1 id="sendAMessage__success" class="sendAMessage__success">Thank you for getting in contact. I should reply soon!</h1>
                 <form onSubmit={this.handleSubmit}>
+                    <h2 id="sendAMessage_invalidName" class="sendAMessage__hidden">Please use a valid name</h2>
                     <label>
                         Name:
                         <input id="sendAMessage__inputBox__name" class="sendAMessage__inputBox" type="text" value={this.state.name} onChange={this.handleNameChange} />
                     </label>
+                    <h2 id="sendAMessage_invalidEmail" class="sendAMessage__hidden">Please use a valid email address</h2>
                     <label>
                         Email:
                         <input id="sendAMessage__inputBox__email" class="sendAMessage__inputBox" type="text" value={this.state.email} onChange={this.handleEmailChange} />
                     </label>
+                    <h2 id="sendAMessage_invalidMessage" class="sendAMessage__hidden">Please use a valid message</h2>
                     <label>
                         Message:
                         {/* <input class="sendAMessage__inputBox__message" type="text" value={this.state.message} onChange={this.handleMessageChange} /> */}
                         <textarea name="Text1" id="sendAMessage__inputBox__message" cols="40" rows="5" class="sendAMessage__inputBox__message" type="text" value={this.state.message} onChange={this.handleMessageChange}></textarea>
                     </label>
+                    <h2 id="sendAMessage__useRecap" class="sendAMessage__hidden">Please complete the recaptcha</h2>
                     <ReCAPTCHA
                         sitekey={recapKey}
                         onChange={this.onRecapChange}
