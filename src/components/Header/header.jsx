@@ -37,6 +37,15 @@ class Header extends Component {
                 const rect = document.getElementById("contact__videoPlayer").getBoundingClientRect();
                 checkBoundingBox(rect);
             }
+            
+            if (document.getElementById("footer") != null){  
+                const rect = document.getElementById("footer").getBoundingClientRect();
+                if (rect.top  <=10) {
+                    document.getElementById("header").style.display = "none"
+                }else{
+                    document.getElementById("header").style.display = "flex"
+                }
+            }
         });
 
 

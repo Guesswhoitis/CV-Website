@@ -1,10 +1,12 @@
 import './Contact.css';
-import Header from '../../components/Header/header';
+import Header from '../../components/header/header';
 import backGround from '../../assets/ContactsLoop.mp4';
 import { FaLinkedin, FaGithub, FaEnvelope, FaDiscord } from "react-icons/fa";
 import SendAMessage from '../../components/sendAMessage/sendAMessage';
-function Contact() {
+import Footer from '../../components/footer/footer';
 
+
+function Contact() {
   return (
     <div id="contact" className="Contact">
       <Header />
@@ -44,6 +46,7 @@ function Contact() {
       </div>
 
       <SendAMessage/>
+      <Footer/>
     </div>
   );
 }

@@ -28,8 +28,7 @@ class Quals extends Component {
                             <td>NCEA Level 3</td>
                             <td>2013-2018</td>
                         </tr>
-                    </table>
-                    
+                    </table>  
                 </div>
             );
         }

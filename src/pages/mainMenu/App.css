@@ -30,6 +30,15 @@
   margin: 0;
 }
 
+.mainMenu__skillsAndQuals{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  width: 95%;
+  margin-bottom: 10%;
+}
+
 @media screen and (max-width:480px) {
   .mainMenu__overVideoText{
     width: 50vw;

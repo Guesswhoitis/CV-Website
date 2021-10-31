@@ -1,0 +1,35 @@
+.footer{
+    background-color: black;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer__main{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.footer__logo{
+    height: 64vmin;
+    width: 40vmin;
+}
+
+.footer__text{
+    width: 40vw;
+    font-size: 2rem;
+    color: white;
+}
+
+.footer__bottom{
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid white;
+}
