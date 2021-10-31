@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { postToDb } from './serverComms'
+// import { postToDb } from './serverComms'
 import ReCAPTCHA from "react-google-recaptcha";
 import "./sendAMessage.css"
 
@@ -112,7 +112,7 @@ class SendAMessage extends Component {
                 document.getElementById("sendAMessage__inputBox__name").value = "";
                 document.getElementById("sendAMessage__inputBox__email").value = "";
 
-                postToDb(this.state.name, this.state.email, this.state.message); //calls method in ServerComms to send data to database
+                this.postToDb(this.state.name, this.state.email, this.state.message); //calls method in ServerComms to send data to database
                 this.setState({ name: "" });
                 this.setState({ email: "" });
                 this.setState({ message: "" });
@@ -135,33 +135,33 @@ class SendAMessage extends Component {
 
     }
 
-    // postToDb(name,email,message) {
+    postToDb(name,email,message) {
 
-    //     var dataBaseIp ="http://james.bombsquad.co.nz";
+        var dataBaseIp ="http://james.bombsquad.co.nz";
 
-    //     var dataBasePort="4000";
+        var dataBasePort="4000";
 
-    //     var toPost = {
-    //         name:name,
-    //         email:email,
-    //         message:message
-    //     };
-
-
-    //     window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
-    //     method:'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(toPost)
-    //   }).then(()=>{
-    //     this.state.name=''
-    //     this.state.email=''
-    //     this.state.message=''
-    //   })
+        var toPost = {
+            name:name,
+            email:email,
+            message:message
+        };
 
 
-    // }
+        window.fetch(dataBaseIp+":"+dataBasePort+"/postMessage",{
+        method:'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(toPost)
+      }).then(()=>{
+        this.state.name=''
+        this.state.email=''
+        this.state.message=''
+      })
+
+
+    }
 
     render() {
         return (
